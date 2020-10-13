@@ -21,6 +21,7 @@
         <alchim31.scala.plugin>4.4.0</alchim31.scala.plugin>
 		<maven.java.formatter.plugin>0.4</maven.java.formatter.plugin>
 		<main.user.dir>${user.dir}</main.user.dir>
+		<license.maven.plugin>3.0</license.maven.plugin>
 	</properties>
 
 	<dependencies>
@@ -139,7 +140,32 @@
 					<encoding>${project.encoding}</encoding>
 				</configuration>
 			</plugin>
-
+			<plugin>
+				<groupId>com.mycila</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<version>${license.maven.plugin}</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>remove</goal>
+							<goal>format</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<quiet>true</quiet>
+					<header>${main.user.dir}/HEADER</header>
+					<includes>
+						<include>**/src/main/java/**</include>
+						<include>**/src/test/java/**</include>
+					</includes>
+					<strictCheck>true</strictCheck>
+					<mapping>
+						<java>SLASHSTAR_STYLE</java>
+					</mapping>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
