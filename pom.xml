@@ -16,6 +16,9 @@
 
 	<properties>
 		<java.version>15</java.version>
+        <scala.major-version>2.13</scala.major-version>
+		<scala.version>${scala.major-version}.3</scala.version>
+        <alchim31.scala.plugin>4.4.0</alchim31.scala.plugin>
 	</properties>
 
 	<dependencies>
@@ -43,6 +46,21 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-compiler</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-reflect</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
 	</dependencies>
     <dependencyManagement>
         <dependencies>
