@@ -19,6 +19,8 @@
         <scala.major-version>2.13</scala.major-version>
 		<scala.version>${scala.major-version}.3</scala.version>
         <alchim31.scala.plugin>4.4.0</alchim31.scala.plugin>
+		<maven.java.formatter.plugin>0.4</maven.java.formatter.plugin>
+		<main.user.dir>${user.dir}</main.user.dir>
 	</properties>
 
 	<dependencies>
@@ -119,6 +121,22 @@
 				<configuration>
 					<source>14</source>
 					<target>14</target>
+				</configuration>
+			</plugin>
+            <plugin>
+				<groupId>com.googlecode.maven-java-formatter-plugin</groupId>
+				<artifactId>maven-java-formatter-plugin</artifactId>
+				<version>${maven.java.formatter.plugin}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>format</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<configFile>${main.user.dir}/Formatter.xml</configFile>
+					<encoding>${project.encoding}</encoding>
 				</configuration>
 			</plugin>
 
