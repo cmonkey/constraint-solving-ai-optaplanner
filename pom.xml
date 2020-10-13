@@ -15,10 +15,15 @@
 	<description>A Spring Boot OptaPlanner example to generate a school timetable.</description>
 
 	<properties>
-		<java.version>15</java.version>
+		<java.version>14</java.version>
+		<project.encoding>UTF-8</project.encoding>
+		<project.build.encoding>UTF-8</project.build.encoding>
         <scala.major-version>2.13</scala.major-version>
 		<scala.version>${scala.major-version}.3</scala.version>
         <alchim31.scala.plugin>4.4.0</alchim31.scala.plugin>
+		<maven.java.formatter.plugin>0.4</maven.java.formatter.plugin>
+		<main.user.dir>${user.dir}</main.user.dir>
+		<license.maven.plugin>3.0</license.maven.plugin>
 	</properties>
 
 	<dependencies>
@@ -117,11 +122,55 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>14</source>
-					<target>14</target>
+                    <encoding>${project.encoding}</encoding>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <skip>true</skip>
+                    <skipMain>true</skipMain>
 				</configuration>
 			</plugin>
-
+            <plugin>
+				<groupId>com.googlecode.maven-java-formatter-plugin</groupId>
+				<artifactId>maven-java-formatter-plugin</artifactId>
+				<version>${maven.java.formatter.plugin}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>format</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<configFile>${main.user.dir}/Formatter.xml</configFile>
+					<encoding>${project.encoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.mycila</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<version>${license.maven.plugin}</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>remove</goal>
+							<goal>format</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<quiet>true</quiet>
+					<header>${main.user.dir}/HEADER</header>
+					<includes>
+						<include>**/src/main/java/**</include>
+						<include>**/src/test/java/**</include>
+					</includes>
+					<strictCheck>true</strictCheck>
+					<mapping>
+						<java>SLASHSTAR_STYLE</java>
+					</mapping>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
