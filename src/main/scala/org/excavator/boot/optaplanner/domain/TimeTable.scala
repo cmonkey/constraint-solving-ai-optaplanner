@@ -4,19 +4,25 @@ import org.optaplanner.core.api.domain.solution.{PlanningEntityCollectionPropert
 import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore
 
+import scala.beans.BeanProperty
+
 case class TimeTable(
   @ValueRangeProvider(id = "timeslotRange")
   @ProblemFactCollectionProperty
+  @BeanProperty
   var timeslotList:List[Timeslot],
 
   @ValueRangeProvider(id = "roomRange")
   @ProblemFactCollectionProperty
+  @BeanProperty
   var roomList: List[Room],
 
   @PlanningEntityCollectionProperty
+  @BeanProperty
   lessonList:List[Lesson],
 
   @PlanningScore
+  @BeanProperty
   var score: HardSoftScore
 )
 
