@@ -6,7 +6,10 @@ import org.optaplanner.core.api.domain.variable.PlanningVariable
 import scala.beans.BeanProperty
 
 @PlanningEntity
-class Lesson(id:Long, subject:String, teacher:String, studentGroup:String){
+case class Lesson(@BeanProperty id:Long,
+            @BeanProperty subject:String,
+            @BeanProperty teacher:String,
+            @BeanProperty studentGroup:String){
 
   @PlanningVariable(valueRangeProviderRefs = Array("roomRange"))
   @BeanProperty
