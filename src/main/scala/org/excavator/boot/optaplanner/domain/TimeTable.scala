@@ -1,11 +1,11 @@
 package org.excavator.boot.optaplanner.domain
 
-import org.optaplanner.core.api.domain.solution.{PlanningEntityCollectionProperty, PlanningScore, ProblemFactCollectionProperty}
+import org.optaplanner.core.api.domain.solution.{PlanningEntityCollectionProperty, PlanningScore, PlanningSolution, ProblemFactCollectionProperty}
 import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore
 
 import scala.beans.BeanProperty
-
+@PlanningSolution
 case class TimeTable(
   @ValueRangeProvider(id = "timeslotRange")
   @ProblemFactCollectionProperty
