@@ -8,13 +8,13 @@ import org.optaplanner.core.api.solver.SolverManager
 import org.springframework.web.bind.annotation.{PostMapping, RequestBody, RequestMapping, RestController}
 
 @RestController
-@RequestMapping("/timeTable")
+@RequestMapping(Array("/timeTable"))
 class TimeTableController{
 
   @Resource
-  var solverManager:SolverManager[TimeTable, UUID]  = null
+  val solverManager:SolverManager[TimeTable, UUID]  = null
 
-  @PostMapping("/solve")
+  @PostMapping(Array("/solve"))
   def solve(@RequestBody problem:TimeTable) = {
     val problemId = UUID.randomUUID()
 
