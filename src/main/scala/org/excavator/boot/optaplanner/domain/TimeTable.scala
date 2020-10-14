@@ -19,7 +19,7 @@ case class TimeTable(
 
   @PlanningEntityCollectionProperty
   @BeanProperty
-  lessonList:List[Lesson],
+  var lessonList:List[Lesson],
 
   @PlanningScore
   @BeanProperty
