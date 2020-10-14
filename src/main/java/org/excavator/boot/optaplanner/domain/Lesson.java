@@ -1,7 +1,8 @@
 package org.excavator.boot.optaplanner.domain;
 
+import org.optaplanner.core.api.domain.entity.PlanningEntity;
 import org.optaplanner.core.api.domain.variable.PlanningVariable;
-
+@PlanningEntity
 public class Lesson {
     private long id;
 
