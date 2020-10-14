@@ -21,6 +21,13 @@ public class Lesson {
     private Lesson() {
     }
 
+    public Lesson(long id, String subject, String teacher, String studentGroup) {
+        this.id = id;
+        this.subject = subject;
+        this.teacher = teacher;
+        this.studentGroup = studentGroup;
+    }
+
     public Lesson(long id, String subject, String teacher, String studentGroup, Timeslot timeslot, Room room) {
         this.id = id;
         this.subject = subject;
