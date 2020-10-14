@@ -20,7 +20,7 @@ class TimeTableController{
 
     val solverJob = solverManager.solve(problemId, problem)
 
-    val solution:TimeTable =solverJob.getFinalBestSolution()
+    val solution:TimeTable = solverJob.getFinalBestSolution()
 
     solution
   }
