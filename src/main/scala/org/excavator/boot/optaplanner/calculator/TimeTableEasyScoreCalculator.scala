@@ -4,10 +4,12 @@ import org.excavator.boot.optaplanner.domain.TimeTable
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore
 import org.optaplanner.core.impl.score.director.easy.EasyScoreCalculator
 
+import scala.jdk.CollectionConverters.CollectionHasAsScala
+
 class TimeTableEasyScoreCalculator extends EasyScoreCalculator[TimeTable] {
   override def calculateScore(timeTable: TimeTable): HardSoftScore = {
 
-    val lessonList = timeTable.getLessonList
+    val lessonList = timeTable.getLessonList.asScala
 
     var hardScore = 0
 
