@@ -24,6 +24,9 @@ public class TimeTable {
     @PlanningScore
     private HardSoftScore score;
 
+    private TimeTable(){
+
+    }
     public TimeTable(List<Timeslot> timeslotList, List<Room> roomList, List<Lesson> lessonList, HardSoftScore score) {
         this.timeslotList = timeslotList;
         this.roomList = roomList;
